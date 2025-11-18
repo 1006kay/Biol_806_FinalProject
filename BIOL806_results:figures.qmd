@@ -3,6 +3,8 @@ title: "BIOL806_results/figures"
 format: pdf
 ---
 
+## Results
+
 ### Data Organizing and Cleaning
 
 All codes to creating the tables, figures and data frames
@@ -25,6 +27,20 @@ MY30d_data1 <- read_excel("~/Desktop/Master Program/Fairchild Data /MY30d_data1.
 ```
 
 ### Above and Below Groups from Mean Rumination Time (RT) in the Last Week of Pregnancy
+
+To account for parirty, primiparous (1st lactation) and
+multiparous (2≥ lactation) cows were grouped together to
+obtain mean rumination time for their last week of pregnancy
+(LWP). For primiparous cows, the mean RT in the LWP was
+489.99 min/24hr. For multiparous cows, the mean RT in the
+LWP was 473.12 min/24hr. In table 1, it shows the cows that
+were enrolled in the data collection process that had an
+individual mean RT that was below parity (primi- or
+multiparous) average. Also included in table 1, is the
+lactation each cow is currently in. Table 2 includes the
+same metrics listed in table 1, however this table shows the
+cows that had a greater mean RT in the LWP than the parity
+RT average.
 
 ```{r, echo=FALSE, tab.cap="This table shows the distribution of cows that belong in the below group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
 #1. Finding individual RT (24hr) in last week of pregnancy
@@ -68,12 +84,24 @@ cow_parity <- grp_avg_final %>%
 
 grp1below <- grp_avg_final %>%
   filter(comparison == "below")
+
+colnames(grp1below)[3] <- c("Mean Ind. RT in LWP")
+colnames(grp1below)[4] <- c("Mean Parity RT in LWP")
+colnames(grp1below)[5] <- c("Group")
+colnames(grp1below)[6] <- c("Parity")
+
 kable(grp1below)
 ```
 
 ```{r, echo=FALSE, tab.cap="This table shows the distribution of cows that belong in the above group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
 grp1above <- grp_avg_final %>%
   filter(comparison == "above")
+
+colnames(grp1above)[3] <- c("Mean Ind. RT in LWP")
+colnames(grp1above)[4] <- c("Mean Parity RT in LWP")
+colnames(grp1above)[5] <- c("Group")
+colnames(grp1above)[6] <- c("Parity")
+
 kable(grp1above)
 ```
 
