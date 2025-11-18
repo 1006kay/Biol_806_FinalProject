@@ -5,7 +5,10 @@ format: pdf
 
 ### Data Organizing and Cleaning
 
-All codes to creating the tables, figures and data frames can be found here <https://github.com/1006kay/BIOL806FinalProject.git> on github.
+All codes to creating the tables, figures and data frames
+can be found here
+<https://github.com/1006kay/Biol_806_FinalProject.git> on
+github.
 
 ```{r, message = FALSE, warning= FALSE, echo=FALSE}
 #Load Packages
@@ -23,7 +26,13 @@ MY30d_data1 <- read_excel("~/Desktop/Master Program/Fairchild Data /MY30d_data1.
 
 ### Above and Below Groups from Mean Rumination Time (RT) in the Last Week of Pregnancy
 
-**Table 1.** This table shows the distribution of cows that belong in the below group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr).
+**Table 1.** This table shows the distribution of cows that
+belong in the below group based off of their rumination time
+(RT) in their last week of pregnancy. The primiparous cows
+(n=5) were grouped together to find the primiparous mean RT
+(4.89.99 min/24hr) and the multiparous cows (n=29) were
+grouped together to find the multiparous mean RT (473.12
+min/24hr).
 
 ```{r, echo=FALSE}
 #1. Finding individual RT (24hr) in last week of pregnancy
@@ -70,7 +79,13 @@ grp1below <- grp_avg_final %>%
 kable(grp1below)
 ```
 
-**Table 2.** This table shows the distribution of cows that belong in the above group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr).
+**Table 2.** This table shows the distribution of cows that
+belong in the above group based off of their rumination time
+(RT) in their last week of pregnancy. The primiparous cows
+(n=5) were grouped together to find the primiparous mean RT
+(4.89.99 min/24hr) and the multiparous cows (n=29) were
+grouped together to find the multiparous mean RT (473.12
+min/24hr).
 
 ```{r, echo=FALSE}
 grp1above <- grp_avg_final %>%
@@ -94,7 +109,9 @@ above_below_bp <- ggplot(grp_avg_final, aes(x = comparison, y = `meanRT-1wk`,
 print(above_below_bp)
 ```
 
-**Figure 1.** The box plot figure above shows the individual cow mean rumination time (min/24hr) in the last week of pregnancy (LWP) for both the above and below groups.
+**Figure 1.** The box plot figure above shows the individual
+cow mean rumination time (min/24hr) in the last week of
+pregnancy (LWP) for both the above and below groups.
 
 ### Mean RT in the Week Before and Week After Calving
 
@@ -151,7 +168,10 @@ mean_a_b_rt <- ggplot(grp1_a_b_LWP_long, aes(x = Day, y = mean_RT, color = group
 print(mean_a_b_rt)
 ```
 
-**Figure 2.** This time series plot is showing the mean rumination (RT) (min/24hr) from the above and below group from 7 days before and 7 days after relative to calving (day 0).
+**Figure 2.** This time series plot is showing the mean
+rumination (RT) (min/24hr) from the above and below group
+from 7 days before and 7 days after relative to calving (day
+0).
 
 ### Above and Below Groups Milk Yield (MY) in first 30 days in milk (DIM)
 
@@ -189,7 +209,10 @@ above_my <- ggplot(grp1MY_above, aes(x = Week,
 print(above_my)
 ```
 
-**Figure 3.** This time series plot shows the mean weekly milk yield (lbs) for each individual cow (primi- and multiparous) in the above group in the first five weeks into lactation. Calving is at the beginning of week 1.
+**Figure 3.** This time series plot shows the mean weekly
+milk yield (lbs) for each individual cow (primi- and
+multiparous) in the above group in the first five weeks into
+lactation. Calving is at the beginning of week 1.
 
 ```{r, echo=FALSE}
 #below
@@ -208,7 +231,10 @@ below_my <- ggplot(grp1MY_below, aes(x = Week,
 print(below_my)
 ```
 
-**Figure 4.** This time series plot shows the mean weekly milk yield (lbs) for each individual cow (primi- and multiparous) in the below group in the first five weeks into lactation. Calving is at the beginning of week 1.
+**Figure 4.** This time series plot shows the mean weekly
+milk yield (lbs) for each individual cow (primi- and
+multiparous) in the below group in the first five weeks into
+lactation. Calving is at the beginning of week 1.
 
 ```{r, echo=FALSE}
 #4. Finding mean MY for the above and below group
@@ -248,4 +274,7 @@ mean_my_a_b <- ggplot(MY_above_below_long, aes(x = `Days Since Last Calving`,
 print(mean_my_a_b)
 ```
 
-**Figure 5.** In this time series plot, it shows the mean milk yield (lbs) for the above and below groups (primi- and multiparous cows) in the first 30 days in milk (DIM). Calving is at day 0.
+**Figure 5.** In this time series plot, it shows the mean
+milk yield (lbs) for the above and below groups (primi- and
+multiparous cows) in the first 30 days in milk (DIM).
+Calving is at day 0.
