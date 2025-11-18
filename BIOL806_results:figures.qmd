@@ -31,7 +31,8 @@ MY30d_data1 <- read_excel("~/Desktop/Master Program/Fairchild Data /MY30d_data1.
 To account for parirty, primiparous (1st lactation) and
 multiparous (2≥ lactation) cows were grouped together to
 obtain mean rumination time for their last week of pregnancy
-(LWP). For primiparous cows, the mean RT in the LWP was
+(LWP), which consisted of days -7 to -1 relative to calving
+(day 0). For primiparous cows, the mean RT in the LWP was
 489.99 min/24hr. For multiparous cows, the mean RT in the
 LWP was 473.12 min/24hr. In table 1, it shows the cows that
 were enrolled in the data collection process that had an
