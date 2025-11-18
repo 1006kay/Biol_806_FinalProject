@@ -26,7 +26,7 @@ RT30d_data <- read_excel("~/Desktop/Master Program/Fairchild Data /RT30d_data.xl
 MY30d_data1 <- read_excel("~/Desktop/Master Program/Fairchild Data /MY30d_data1.xlsx")
 ```
 
-### Above and Below Groups from Mean Rumination Time (RT) in the Last Week of Pregnancy
+### Above and Below Groups from Mean Rumination Time in the Last Week of Pregnancy
 
 To account for parirty, primiparous (1st lactation) and
 multiparous (2≥ lactation) cows were grouped together to
@@ -137,7 +137,7 @@ above_below_bp <- ggplot(grp_avg_final, aes(x = comparison, y = `meanRT-1wk`,
 print(above_below_bp)
 ```
 
-### Mean RT in the Week Before and Week After Calving
+### Mean Rumination Time in the Week Before and Week After Calving
 
 ```{r, echo=FALSE, fig.cap="This time series plot is showing the mean rumination (RT) (min/24hr) from the above and below group from 7 days before and 7 days after relative to calving (day 0)."}
 #0. New data frames were created with all RT data for above and below groups for future analysis
