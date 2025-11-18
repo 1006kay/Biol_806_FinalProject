@@ -203,7 +203,13 @@ mean_a_b_rt <- ggplot(grp1_a_b_LWP_long, aes(x = Day, y = mean_RT, color = group
 print(mean_a_b_rt)
 ```
 
-### Above and Below Groups Milk Yield (MY) in first 30 days in milk (DIM)
+### Above and Below Groups Milk Yield in first 30 days in milk (DIM)
+
+In figure 3, it shows the weekly milk yield (MY)(lbs) for
+the above group in the first 5 weeks in lactation. Based off
+of the graph, all cows have a similar trend throughout the 5
+weeks, increasing as the weeks increase. Cow 989 has a
+slight decrease at week 3 but increases after.
 
 ```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow (primi- and multiparous) in the above group in the first five weeks into lactation. Calving is at the beginning of week 1."}
 #1. Assign groups (above or below) to MY data
@@ -229,7 +235,7 @@ above_my <- ggplot(grp1MY_above, aes(x = Week,
   geom_point() +
   geom_line() +
   theme_light() +
-  labs(y = "Weekly Milk Yield (lbs)") +
+  labs(y = "Weekly Milk Yield (lbs) for the Above Group") +
   theme(axis.title.y = element_text(size = 12),
         axis.title.x = element_text(size = 12),
         legend.text = element_text(size = 7)) +
@@ -239,6 +245,11 @@ above_my <- ggplot(grp1MY_above, aes(x = Week,
 print(above_my)
 ```
 
+In figure 4, it shows the weekly milk yield (MY)(lbs) for
+the below group in the first 5 weeks in lactation. Based off
+of this graph, there are a some cows that have a decrease in
+weekly milk yield.
+
 ```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow (primi- and multiparous) in the below group in the first five weeks into lactation. Calving is at the beginning of week 1."}
 #below
 below_my <- ggplot(grp1MY_below, aes(x = Week, 
@@ -247,7 +258,7 @@ below_my <- ggplot(grp1MY_below, aes(x = Week,
   geom_point() +
   geom_line() +
   theme_light() +
-  labs(y = "Weekly Milk Yield (lbs)") +
+  labs(y = "Weekly Milk Yield (lbs) for the Below Group") +
   theme(axis.title.y = element_text(size = 12),
         axis.title.x = element_text(size = 12),
         legend.text = element_text(size = 7)) +
