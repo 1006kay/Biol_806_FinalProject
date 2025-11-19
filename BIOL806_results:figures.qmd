@@ -45,6 +45,8 @@ cows that had a greater mean RT in the LWP than the parity
 RT average. The sample size of cows placed in the above
 group is *n* = 18.
 
+\pagebreak
+
 ```{r, echo=FALSE, tab.cap="The distribution of cows that belong in the below group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
 #1. Finding individual RT (24hr) in last week of pregnancy
 ind_average24rt <- RT30d_data %>%
@@ -96,6 +98,8 @@ colnames(grp1below)[6] <- c("Parity")
 kable(grp1below)
 ```
 
+\pagebreak
+
 ```{r, echo=FALSE, tab.cap="The distribution of cows that belong in the above group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
 grp1above <- grp_avg_final %>%
   filter(comparison == "above")
@@ -107,6 +111,8 @@ colnames(grp1above)[6] <- c("Parity")
 
 kable(grp1above)
 ```
+
+\pagebreak
 
 In figure 1, shows the distribution of cows individual
 rumination time after assigning groups, above or below,
@@ -136,6 +142,8 @@ above_below_bp <- ggplot(grp_avg_final, aes(x = comparison, y = `meanRT-1wk`,
 
 print(above_below_bp)
 ```
+
+\pagebreak
 
 ### Mean Rumination Time in the Week Before and Week After Calving
 
@@ -203,6 +211,8 @@ mean_a_b_rt <- ggplot(grp1_a_b_LWP_long, aes(x = Day, y = mean_RT, color = group
 print(mean_a_b_rt)
 ```
 
+\pagebreak
+
 ### Above and Below Groups Milk Yield in first 30 days in milk (DIM)
 
 In figure 3, it shows the weekly milk yield (MY)(lbs) for
@@ -248,6 +258,8 @@ above_my <- ggplot(grp1MY_above, aes(x = Week,
 print(above_my)
 ```
 
+\pagebreak
+
 In figure 4, it shows the weekly milk yield (MY)(lbs) for
 the below group in the first five weeks in lactation. Based
 off of this graph, there are a some cows that have a
@@ -276,6 +288,8 @@ below_my <- ggplot(grp1MY_below, aes(x = Week,
 
 print(below_my)
 ```
+
+\pagebreak
 
 In figure 5, it shows that the cows in the below group, a
 lower rumination time than primiparous or multiparous
