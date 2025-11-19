@@ -206,12 +206,14 @@ print(mean_a_b_rt)
 ### Above and Below Groups Milk Yield in first 30 days in milk (DIM)
 
 In figure 3, it shows the weekly milk yield (MY)(lbs) for
-the above group in the first 5 weeks in lactation. Based off
-of the graph, all cows have a similar trend throughout the 5
-weeks, increasing as the weeks increase. Cow 989 has a
-slight decrease at week 3 but increases after.
+the above group in the first five weeks in lactation. Based
+off of the graph, all cows have a similar trend throughout
+the five weeks, increasing as the weeks increase. Cow 989
+has a slight decrease at week three but increases after. Cow
+976 and 1047 both have a decrease in weekly milk yield at
+week five.
 
-```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow (primi- and multiparous) in the above group in the first five weeks into lactation. Calving is at the beginning of week 1."}
+```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow in the above group in the first five weeks into lactation. Calving is at the beginning of week 1."}
 #1. Assign groups (above or below) to MY data
 cowid_group <- grp_avg_final %>%
   select(`Cow ID`, comparison, parity)
@@ -235,7 +237,8 @@ above_my <- ggplot(grp1MY_above, aes(x = Week,
   geom_point() +
   geom_line() +
   theme_light() +
-  labs(y = "Weekly Milk Yield (lbs) for the Above Group") +
+  labs(y = "Weekly Milk Yield (lbs) for 
+       the Above Group") +
   theme(axis.title.y = element_text(size = 12),
         axis.title.x = element_text(size = 12),
         legend.text = element_text(size = 7)) +
@@ -246,11 +249,17 @@ print(above_my)
 ```
 
 In figure 4, it shows the weekly milk yield (MY)(lbs) for
-the below group in the first 5 weeks in lactation. Based off
-of this graph, there are a some cows that have a decrease in
-weekly milk yield.
+the below group in the first five weeks in lactation. Based
+off of this graph, there are a some cows that have a
+decrease in weekly milk yield. Cows 1150 has a decline in
+weekly milk yield at week three, that continues to decrease.
+Cow 1195 also has a slight decrease at week three but
+slightly increases at week four and five. Cow 1048 has a
+decrease in weekly milk yield at week two, but increases in
+the next week. Cow 1191 and 953 both have a slight decrease
+in weekly milk yield at week five.
 
-```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow (primi- and multiparous) in the below group in the first five weeks into lactation. Calving is at the beginning of week 1."}
+```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow in the below group in the first five weeks into lactation. Calving is at the beginning of week 1."}
 #below
 below_my <- ggplot(grp1MY_below, aes(x = Week, 
                          y = `Weekly MY`, 
@@ -258,7 +267,8 @@ below_my <- ggplot(grp1MY_below, aes(x = Week,
   geom_point() +
   geom_line() +
   theme_light() +
-  labs(y = "Weekly Milk Yield (lbs) for the Below Group") +
+  labs(y = "Weekly Milk Yield (lbs) for 
+       the Below Group") +
   theme(axis.title.y = element_text(size = 12),
         axis.title.x = element_text(size = 12),
         legend.text = element_text(size = 7)) +
@@ -267,7 +277,15 @@ below_my <- ggplot(grp1MY_below, aes(x = Week,
 print(below_my)
 ```
 
-```{r, echo=FALSE, fig.cap="In this time series plot, it shows the mean milk yield (lbs) for the above and below groups (primi- and multiparous cows) in the first 30 days in milk (DIM). Calving is at day 0."}
+In figure 5, it shows that the cows in the below group, a
+lower rumination time than primiparous or multiparous
+average in the last week of pregnancy, had slightly lower
+mean milk yield in the first 30 days into lactation, when
+compared to the cows in the above group, higher rumination
+time than primiparous or multiparous average in the last
+week of pregnancy.
+
+```{r, echo=FALSE, fig.cap="In this time series plot, it shows the mean milk yield (lbs) for the above and below groups in the first 30 days in milk (DIM). Calving is at day 0."}
 #4. Finding mean MY for the above and below group
 #above
 avgaboveMY <- grp1MY_above %>%
