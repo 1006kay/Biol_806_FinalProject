@@ -45,7 +45,7 @@ cows that had a greater mean RT in the LWP than the parity
 RT average. The sample size of cows placed in the above
 group is *n* = 18.
 
-```{r, echo=FALSE, tab.cap="This table shows the distribution of cows that belong in the below group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
+```{r, echo=FALSE, tab.cap="The distribution of cows that belong in the below group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
 #1. Finding individual RT (24hr) in last week of pregnancy
 ind_average24rt <- RT30d_data %>%
   select(`Cow ID`, Day, `RT 24hr`) %>% 
@@ -96,7 +96,7 @@ colnames(grp1below)[6] <- c("Parity")
 kable(grp1below)
 ```
 
-```{r, echo=FALSE, tab.cap="This table shows the distribution of cows that belong in the above group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
+```{r, echo=FALSE, tab.cap="The distribution of cows that belong in the above group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (4.89.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
 grp1above <- grp_avg_final %>%
   filter(comparison == "above")
 
