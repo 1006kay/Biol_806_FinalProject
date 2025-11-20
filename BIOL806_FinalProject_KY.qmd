@@ -488,7 +488,7 @@ print(mean_my_a_b)
 
 # Conclusion:
 
-## Works Cited:
+# Works Cited:
 
 Calamari, L., N. Soriani, G. Panella, F. Petrera, A. Minuti,
 and E. Trevisi. 2014. “Rumination Time around Calving: An
