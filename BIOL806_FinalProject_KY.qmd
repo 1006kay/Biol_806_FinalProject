@@ -5,7 +5,7 @@ author: "Kayla Young"
 format: pdf
 ---
 
-# Introduction: 
+# Introduction:
 
 Dairy cows have a natural behavior to ruminate, which occurs
 in all ruminant animal species since they are foregut
@@ -486,7 +486,69 @@ print(mean_my_a_b)
 
 # Discussion:
 
+Mean Rumination Time in Last Week of Pregnancy
+
+From table 1 and table 2, there is a slightly even
+distribution of cows in the above and below group, above
+with (n = 18) and below with (n = 16). Primiparous cows had
+a greater mean rumination time when compared to multiparous
+cows, which is unexpected since multiparous cows tend to
+spend more time ruminating. However, since the sample size
+for primiparous cows was only five in total, two of the five
+primiparous cows were placed in the above group because of
+their high rumination time compared to the other three,
+which could explain why the primiparous mean rumination time
+is greater. As for the multiparous cows, n = 13 were placed
+in the below group while the remaining n = 16 placed in the
+above group. As for figure 1, there is a clear difference of
+the above and below group in relation to their individual
+mean RT in the last week of pregnancy.
+
+Mean Rumination Time in the Week Before and Week After
+Calving
+
+The mean rumination time for the below group from -7 to day
+0 in figure 2 remains to have a greater decreased rumination
+time compared to the above group. However, both have a
+similar trend of reduced RT from -1 to 1 d, which provides
+support that calving is known to cause a decrease in
+rumination time. Only on day 2, both groups have a similar
+mean RT but overall even after calving, the below group
+stays consistently under the above group.
+
+Milk Yield in the First 30 Days in Milk
+
+Throughout figures 3 and 4, it shows the relationship of
+weekly milk yield from week one to five for both groups.
+There is a similar trend with both groups, when the week
+increases, so does weekly milk yield. This is realistic for
+a dairy cow, as they will reach peak milk yield around 40 to
+70 DIM. In the below group, there are some cows that had
+greater reductions in weekly milk yield throughout the first
+five weeks. However, in the above group, there are only a
+couple of cows that had very little decreased weekly milk
+yield. Lastly, the same concept can be applied to figure 5,
+as time increases (days) so does milk yield. Similar to
+figure 2, figure 5 shows that the below group is
+consistently under the above group, meaning that the cows in
+the above group are ideally making more pounds of milk daily
+compared to the cows in the below group.
+
 # Conclusion:
+
+This data gives helpful insight on how rumination time in
+the last week of pregnancy can impact milk production in the
+first 30 days into lactation. With a decrease in rumination
+time in the last week of pregnancy, can cause a decrease in
+milk yield. Because health events were not provided in this
+study, it is unknown if common health disorders like
+hypocalcemia, ketosis, retain placenta, etc., caused the
+reduction of milk yield. Since the transition period is a
+critical time for dairy cows, it is not uncommon for the
+reduced RT to lead to health disorders that overall
+decreases milk yield at the start of lactation. This study
+creates new ideas to explore RT and its relationship to
+lactation success.
 
 # Works Cited:
 
@@ -547,3 +609,34 @@ Transition Period.” *Animals* 14 (5): 816.
 https://doi.org/10.3390/ani14050816.
 
 ## R Packages Citations:
+
+Garrett Grolemund, Hadley Wickham (2011). Dates and Times
+Made Easy with lubridate. Journal of Statistical Software,
+40(3), 1-25. URL <https://www.jstatsoft.org/v40/i03/.>
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François
+R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen
+TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel
+DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani
+H (2019). “Welcome to the tidyverse.” *Journal of Open
+Source Software*, *4*(43), 1686. doi:10.21105/joss.01686
+<https://doi.org/10.21105/joss.01686>.
+
+Wickham H, Bryan J (2025). *readxl: Read Excel Files*. R
+package version 1.4.5,
+<https://CRAN.R-project.org/package=readxl>.
+
+Wickham H, Henry L (2023). *purrr: Functional Programming
+Tools*. R package version 1.0.2,
+<https://CRAN.R-project.org/package=purrr>.
+
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis.
+Springer-Verlag New York, 2016.
+
+Wickham H, François R, Henry L, Müller K, Vaughan D (2023).
+*dplyr: A Grammar of Data Manipulation*. R package version
+1.1.4, <https://CRAN.R-project.org/package=dplyr>.
+
+Zhu H (2024). *kableExtra: Construct Complex Table with
+'kable' and Pipe Syntax*. R package version 1.4.0,
+<https://CRAN.R-project.org/package=kableExtra>.
