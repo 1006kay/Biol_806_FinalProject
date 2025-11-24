@@ -5,7 +5,7 @@ author: "Kayla Young"
 format: pdf
 ---
 
-# Introduction:
+# Introduction: 
 
 Dairy cows have a natural behavior to ruminate, which occurs
 in all ruminant animal species since they are foregut
