@@ -486,7 +486,7 @@ print(mean_my_a_b)
 
 # Discussion:
 
-Mean Rumination Time in Last Week of Pregnancy
+***Mean Rumination Time in Last Week of Pregnancy***
 
 From table 1 and table 2, there is a slightly even
 distribution of cows in the above and below group, above
@@ -504,8 +504,8 @@ above group. As for figure 1, there is a clear difference of
 the above and below group in relation to their individual
 mean RT in the last week of pregnancy.
 
-Mean Rumination Time in the Week Before and Week After
-Calving
+***Mean Rumination Time in the Week Before and Week After
+Calving***
 
 The mean rumination time for the below group from -7 to day
 0 in figure 2 remains to have a greater decreased rumination
@@ -516,7 +516,7 @@ rumination time. Only on day 2, both groups have a similar
 mean RT but overall even after calving, the below group
 stays consistently under the above group.
 
-Milk Yield in the First 30 Days in Milk
+***Milk Yield in the First 30 Days in Milk***
 
 Throughout figures 3 and 4, it shows the relationship of
 weekly milk yield from week one to five for both groups.
