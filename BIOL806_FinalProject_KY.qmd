@@ -273,6 +273,8 @@ colnames(grp1above)[6] <- c("Parity")
 kable(grp1above)
 ```
 
+\pagebreak
+
 In figure 1, shows the distribution of cows individual
 rumination time after assigning groups, above or below,
 based off of the mean RT in the last week of pregnancy.
@@ -495,8 +497,6 @@ mean_my_a_b <- ggplot(MY_above_below_long, aes(x = `Days Since Last Calving`,
 
 print(mean_my_a_b)
 ```
-
-\pagebreak
 
 # Discussion:
 
