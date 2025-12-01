@@ -1,5 +1,5 @@
 ---
-title: "Rumination Time in the Transition Period and its Relationship to Lactation Success in the first 30 days in milk for Holstein Dairy Cows."
+title: "Rumination Time its Relationship to Lactation Success in the first 30 days in milk for Holstein Dairy Cows."
 subtitle: "BIOL806 Final Project"
 author: "Kayla Young"
 format: pdf
@@ -17,16 +17,16 @@ acidic rumen pH to ensure a stable environment for the
 microbes that are responsible for the fermentation process
 (Paudyal et al. 2018; Kaufman et al. 2018; Schirmann et al.
 2013). Rumination is also known to be an indicator on
-well-being and is widely used in research for the transition
-period, the three weeks before and three weeks after
-calving, which is the critically most important stage in a
-dairy cow’s life and its success determines how well they
-will perform in lactation (Calamari et al. 2014; Drackley
-1999). Technology has been increasing in the dairy industry
-that has helped researchers learn more how to utilize
-rumination to predict dairy cattle health. There are many
-forms of technology that can measure different metrics like
-rumination time, activity time, body temperature, water
+well-being and is widely used in research, especially during
+the transition period which is the three weeks before and
+three weeks after calving. This stage is the critically most
+important in a dairy cow’s life and its success determines
+how well they will perform in lactation (Calamari et al.
+2014; Drackley 1999). Technology has been increasing in the
+dairy industry that has helped researchers learn more how to
+utilize rumination to predict dairy cattle health. There are
+many forms of technology that can measure different metrics
+like rumination time, activity time, body temperature, water
 intake, and so much more. These technologies essentially act
 like an apple watch, fit bit or aura ring for humans but
 instead, for cows. They come in many different wearable
@@ -76,17 +76,16 @@ impacts milk production in the first 30 days into lactation
 
 # Methods:
 
-*This data used in this study was collected from Fairchild
-Dairy Teaching and Research Center and from the automated
-cow monitoring system, SmaXtec for (n=34) Holstein dairy
-cows. Bolus’s have been installed for majority lactating
-cows and have been collecting rumination time (min/24hr),
-water intake (l/24hr), body temperature (°C), activity,
-calving indicator, and heat index. The metrics of interest
-for this study involved milk yield data from 0-30 DIM and
-rumination time every 10 mins from -14d – 30 post-partum.
-Also included is a confirmed diagnosis of metabolic diseases
-that occurred in the first 30 DIM.*
+*This data used in this study was collected from the
+Fairchild Dairy Teaching and Research Center and from the
+automated cow monitoring system, SmaXtec for (n=34) Holstein
+dairy cows. Bolus’s have been installed for majority
+lactating cows and have been collecting rumination time
+(min/24hr), water intake (l/24hr), body temperature (°C),
+activity, calving indicator, and heat index. The metrics of
+interest for this study involved milk yield data from 0-30
+DIM and rumination time every 10 mins from -14d pre-partum
+to 30d post-partum.*
 
 ## Data Cleaning and Organizing:
 
@@ -100,14 +99,14 @@ online database was exported from -14d pre-partum to 30d
 post-partum and briefly scanned to ensure it consisted
 appropriate days needed. Cows that did not meet the date
 requirements, i.e. bolus was administered at a later time
-and not calibrated yet, was not included in the study
+and not yet calibrated, was not included in the study
 (n=13). In a new excel sheet, consisted of all SmaXtec
 imported data, and new columns was created to gather 2 hour,
 6 hour, and 24 hours mean rumination time (RT) for each
-individual cow, on each day, from -14d to 30d post-partum.
-Each cow’s spreadsheet was then copied and pasted to create
-one long running spreadsheet for all cows in this study
-(n=34) to then be imported to R studio for further analysis.
+individual cow on each day. Each cow’s spreadsheet was then
+copied and pasted to create one long running spreadsheet for
+all cows in this study (n=34) to then be imported to R
+studio for further analysis.
 
 As for milk yield, data was exported from the milk system
 (DeLaval Delpro) at the UNH dairy computer, for each cow
@@ -119,7 +118,7 @@ cow’s spreadsheet was then copied and pasted to create one
 long running spreadsheet to then be imported to R studio for
 further analysis.
 
-## Exploring Rumination Time (RT) in Last Week of Pregnancy:
+## Mean Rumination Time in Last Week of Pregnancy:
 
 Each cow was placed into one of two groups, above or below,
 based off of the mean rumination time (RT), accounting for
@@ -135,9 +134,9 @@ averaged together to obtain a group mean RT to classify each
 primparous cow if their individual mean RT in the last week
 of pregnancy was above or below the group RT average. This
 same step was also completed for the multiparous cows,
-(lactation ≥ 2, *n* = 29).
+(lactation = 2+, *n* = 29).
 
-## Exploring Mean RT in the Week Before and Week After Calving (-7d to 7d):
+## Mean Rumination Time in the Week Before and Week After Calving (-7d to 7d):
 
 To visualize mean rumination time from both the above and
 below groups in the week before and week after calving, both
@@ -148,7 +147,7 @@ day from -7 to 7. The same step was repeated for the cows in
 the above group. This data was then combined together to be
 constructed into a time series plot.
 
-## Above and Below Groups for Milk Yield (MY):
+## Above and Below Groups Milk Yield in first 30 days in milk:
 
 Groups above and below were assigned to the milk yield data
 to explore lactation success in the first 30 days in milk
@@ -166,7 +165,7 @@ into a time series plot.
 
 # Results:
 
-### Data Organizing and Cleaning
+## Data Organizing and Cleaning
 
 All codes to creating the tables, figures and data frames
 can be found here
@@ -187,13 +186,13 @@ RT30d_data <- read_excel("~/Desktop/Master Program/Fairchild Data /RT30d_data.xl
 MY30d_data1 <- read_excel("~/Desktop/Master Program/Fairchild Data /MY30d_data1.xlsx")
 ```
 
-### Above and Below Groups from Mean Rumination Time in the Last Week of Pregnancy
+## Mean Rumination Time in the Last Week of Pregnancy
 
 To account for parirty, primiparous (1st lactation) and
-multiparous (2≥ lactation) cows were grouped together to
+multiparous (2+ lactation) cows were grouped together to
 obtain mean rumination time for their last week of pregnancy
-(LWP), which consisted of days -7 to -1 relative to calving
-(day 0). For primiparous cows, the mean RT in the LWP was
+(LWP), which consisted of days -7 to -1, relative to calving
+at day 0. For primiparous cows, the mean RT in the LWP was
 489.99 min/24hr. For multiparous cows, the mean RT in the
 LWP was 473.12 min/24hr. In table 1, it shows the cows that
 were enrolled in the data collection process that had an
@@ -288,7 +287,7 @@ the group, as well as the shape of this group is not
 symmetric as the median is not centered but the whiskers are
 similar in length.
 
-```{r, echo=FALSE, fig.cap="The box plot figure above shows the individual cow mean rumination time (min/24hr) in the last week of pregnancy (LWP) for both the above and below groups."}
+```{r, echo=FALSE, fig.cap="The box plot figure shows the individual cow mean rumination time (min/24hr) in the last week of pregnancy (LWP) for both the above and below groups."}
 above_below_bp <- ggplot(grp_avg_final, aes(x = comparison, y = `meanRT-1wk`, 
                              colour = comparison)) +
   geom_boxplot() +
@@ -306,7 +305,7 @@ print(above_below_bp)
 
 \pagebreak
 
-### Mean Rumination Time in the Week Before and Week After Calving
+## Mean Rumination Time in the Week Before and Week After Calving
 
 In Figure 2, it shows mean rumination time (min/24hr) by day
 relative to calving. The below group has decreased mean
@@ -374,7 +373,7 @@ print(mean_a_b_rt)
 
 \pagebreak
 
-### Above and Below Groups Milk Yield in first 30 days in milk (DIM)
+## Above and Below Groups Milk Yield in first 30 days in milk (DIM)
 
 In Figure 3, it shows the weekly milk yield (MY)(lbs) for
 the above group in the first five weeks in lactation. Based
@@ -544,9 +543,10 @@ couple of cows that had very little decreased weekly milk
 yield. Lastly, the same concept can be applied to figure 5,
 as time increases (days) so does milk yield. Similar to
 figure 2, figure 5 shows that the below group is
-consistently under the above group, meaning that the cows in
-the above group are ideally making more pounds of milk daily
-compared to the cows in the below group.
+consistently under the above group, meaning that it is
+hypothesized that cows in the above group are ideally making
+more pounds of milk daily compared to the cows in the below
+group for the first 30 DIM.
 
 # Conclusion:
 
