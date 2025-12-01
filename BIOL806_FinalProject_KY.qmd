@@ -275,7 +275,7 @@ kable(grp1above)
 
 \pagebreak
 
-In figure 1, shows the distribution of cows individual
+In Figure 1, shows the distribution of cows individual
 rumination time after assigning groups, above or below,
 based off of the mean RT in the last week of pregnancy.
 Based off of figure, the above group shows that there are no
@@ -308,12 +308,12 @@ print(above_below_bp)
 
 ### Mean Rumination Time in the Week Before and Week After Calving
 
-In figure 2, it shows mean rumination time (min/24hr) by day
+In Figure 2, it shows mean rumination time (min/24hr) by day
 relative to calving. The below group has decreased mean
 rumination time from day -7 to day 1, when compared to the
 above group. After calving at day 0, the below group still
 has a slight decrease in mean rumination time is comparison
-to the above group. However, at day 2, both teh above and
+to the above group. However, at day 2, both the above and
 below groups have a similar mean rumination time just above
 425 min/24hr. Both groups have a similar pattern of mean
 rumination time throughout, meaning around calving,
@@ -376,7 +376,7 @@ print(mean_a_b_rt)
 
 ### Above and Below Groups Milk Yield in first 30 days in milk (DIM)
 
-In figure 3, it shows the weekly milk yield (MY)(lbs) for
+In Figure 3, it shows the weekly milk yield (MY)(lbs) for
 the above group in the first five weeks in lactation. Based
 off of the graph, all cows have a similar trend throughout
 the five weeks, increasing as the weeks increase. Cow 989
@@ -421,7 +421,7 @@ print(above_my)
 
 \pagebreak
 
-In figure 4, it shows the weekly milk yield (MY)(lbs) for
+In Figure 4, it shows the weekly milk yield (MY)(lbs) for
 the below group in the first five weeks in lactation. Based
 off of this graph, there are a some cows that have a
 decrease in weekly milk yield. Cows 1150 has a decline in
@@ -452,7 +452,7 @@ print(below_my)
 
 \pagebreak
 
-In figure 5, it shows that the cows in the below group, a
+In Figure 5, it shows that the cows in the below group, a
 lower rumination time than primiparous or multiparous
 average in the last week of pregnancy, had slightly lower
 mean milk yield in the first 30 days into lactation, when
