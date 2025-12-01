@@ -318,7 +318,7 @@ below groups have a similar mean rumination time just above
 rumination time throughout, meaning around calving,
 rumination time decreases, then increases days after.
 
-```{r, echo=FALSE, fig.cap="This time series plot is showing the mean rumination (RT) (min/24hr) from the above and below group from 7 days before and 7 days after relative to calving (day 0)."}
+```{r, echo=FALSE, fig.cap="Time series plot that is showing the mean rumination (RT) (min/24hr) from the above and below group from 7 days before and 7 days after relative to calving (day 0)."}
 #0. New data frames were created with all RT data for above and below groups for future analysis
 grp1above_dataset <- RT30d_data %>%
   filter(`Cow ID` %in% c(976, 989, 1047, 1083, 1103, 1107, 1141, 1148, 1189, 1192, 1200,
@@ -383,7 +383,7 @@ has a slight decrease at week three but increases after. Cow
 976 and 1047 both have a decrease in weekly milk yield at
 week five.
 
-```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow in the above group in the first five weeks into lactation. Calving is at the beginning of week 1."}
+```{r, echo=FALSE, fig.cap="Time series plot that shows the mean weekly milk yield (lbs) for each individual cow in the above group in the first five weeks into lactation. Calving is at the beginning of week 1."}
 #1. Assign groups (above or below) to MY data
 cowid_group <- grp_avg_final %>%
   select(`Cow ID`, comparison, parity)
@@ -431,7 +431,7 @@ decrease in weekly milk yield at week two, but increases in
 the next week. Cow 1191 and 953 both have a slight decrease
 in weekly milk yield at week five.
 
-```{r, echo=FALSE, fig.cap="This time series plot shows the mean weekly milk yield (lbs) for each individual cow in the below group in the first five weeks into lactation. Calving is at the beginning of week 1."}
+```{r, echo=FALSE, fig.cap="Time series plot that shows the mean weekly milk yield (lbs) for each individual cow in the below group in the first five weeks into lactation. Calving is at the beginning of week 1."}
 #below
 below_my <- ggplot(grp1MY_below, aes(x = Week, 
                          y = `Weekly MY`, 
@@ -459,7 +459,7 @@ compared to the cows in the above group, higher rumination
 time than primiparous or multiparous average in the last
 week of pregnancy.
 
-```{r, echo=FALSE, fig.cap="In this time series plot, it shows the mean milk yield (lbs) for the above and below groups in the first 30 days in milk (DIM). Calving is at day 0."}
+```{r, echo=FALSE, fig.cap="Time series plot that shows the mean milk yield (lbs) for the above and below groups in the first 30 days in milk (DIM). Calving is at day 0."}
 #4. Finding mean MY for the above and below group
 #above
 avgaboveMY <- grp1MY_above %>%
