@@ -28,7 +28,7 @@ utilize rumination to predict dairy cattle health. There are
 many forms of technology that can measure different metrics
 like rumination time, activity time, body temperature, water
 intake, and so much more. These technologies essentially act
-like an apple watch, fit bit or aura ring for humans but
+like an apple watch, fit bit or oura ring for humans but
 instead, for cows. They come in many different wearable
 forms from collars, ear tags, wristbands and more
 increasingly popular, bolus’s that reside inside the cow’s
