@@ -511,17 +511,17 @@ for primiparous cows was only five in total, two of the five
 primiparous cows were placed in the above group because of
 their high rumination time compared to the other three,
 which could explain why the primiparous mean rumination time
-is greater. As for the multiparous cows, n = 13 were placed
-in the below group while the remaining n = 16 placed in the
-above group. As for figure 1, there is a clear difference of
-the above and below group in relation to their individual
-mean RT in the last week of pregnancy.
+is greater. As for the multiparous cows, *n* = 13 were
+placed in the below group while the remaining *n* = 16
+placed in the above group. As for Figure 1, there is a clear
+difference of the above and below group in relation to their
+individual mean RT in the last week of pregnancy.
 
 ***Mean Rumination Time in the Week Before and Week After
 Calving***
 
 The mean rumination time for the below group from -7 to day
-0 in figure 2 remains to have a greater decreased rumination
+0 in Figure 2 remains to have a greater decreased rumination
 time compared to the above group. However, both have a
 similar trend of reduced RT from -1 to 1 d, which provides
 support that calving is known to cause a decrease in
@@ -540,7 +540,7 @@ a dairy cow, as they will reach peak milk yield around 40 to
 greater reductions in weekly milk yield throughout the first
 five weeks. However, in the above group, there are only a
 couple of cows that had very little decreased weekly milk
-yield. Lastly, the same concept can be applied to figure 5,
+yield. Lastly, the same concept can be applied to Figure 5,
 as time increases (days) so does milk yield. Similar to
 Figure 2, Figure 5 shows that the below group is
 consistently under the above group, meaning that it is
