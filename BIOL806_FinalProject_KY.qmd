@@ -1,5 +1,5 @@
 ---
-title: "Rumination Time and its Relationship to Lactation Success in the first 30 days in milk for Holstein Dairy Cows."
+title: "Rumination time and its relationship to lactation success in the first 30 days in milk for Holstein dairy cows."
 subtitle: "BIOL806 Final Project"
 author: "Kayla Young"
 format: pdf
