@@ -503,19 +503,19 @@ print(mean_my_a_b)
 
 From table 1 and table 2, there is a slightly even
 distribution of cows in the above and below group, above
-with (n = 18) and below with (n = 16). Primiparous cows had
-a greater mean rumination time when compared to multiparous
-cows, which is unexpected since multiparous cows tend to
-spend more time ruminating. However, since the sample size
-for primiparous cows was only five in total, two of the five
-primiparous cows were placed in the above group because of
-their high rumination time compared to the other three,
-which could explain why the primiparous mean rumination time
-is greater. As for the multiparous cows, *n* = 13 were
-placed in the below group while the remaining *n* = 16
-placed in the above group. As for Figure 1, there is a clear
-difference of the above and below group in relation to their
-individual mean RT in the last week of pregnancy.
+with (*n* = 18) and below with (*n* = 16). Primiparous cows
+had a greater mean rumination time when compared to
+multiparous cows, which is unexpected since multiparous cows
+tend to spend more time ruminating. However, since the
+sample size for primiparous cows was only five in total, two
+of the five primiparous cows were placed in the above group
+because of their high rumination time compared to the other
+three, which could explain why the primiparous mean
+rumination time is greater. As for the multiparous cows, *n*
+= 13 were placed in the below group while the remaining *n*
+= 16 placed in the above group. As for Figure 1, there is a
+clear difference of the above and below group in relation to
+their individual mean RT in the last week of pregnancy.
 
 ***Mean Rumination Time in the Week Before and Week After
 Calving***
