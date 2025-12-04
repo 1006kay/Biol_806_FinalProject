@@ -1,0 +1,362 @@
+---
+title: "BIOL806_FinalProject_KY"
+author: "Kayla Young"
+date: "2025-12-04"
+output: html_document
+---
+Introduction
+
+Dairy cows have a natural behavior to ruminate, which occurs in all ruminant animal species since they are foregut fermenters. Rumination is the process of regurgitating undigested food, chewing for further mechanical digestion and swallowed again to increase surface area for feed particles, as well as aid in saliva production to buffer the acidic rumen pH to ensure a stable environment for the microbes that are responsible for the fermentation process (Paudyal et al. 2018; Kaufman et al. 2018; Schirmann et al. 2013). Rumination is also known to be an indicator on well-being and is widely used in research, especially during the transition period which is the three weeks before and three weeks after calving. This stage is the critically most important in a dairy cow’s life and its success determines how well they will perform in lactation (Calamari et al. 2014; Drackley 1999). Technology has been increasing in the dairy industry that has helped researchers learn more how to utilize rumination to predict dairy cattle health. There are many forms of technology that can measure different metrics like rumination time, activity time, body temperature, water intake, etc. These technologies essentially act like an apple watch, fit bit or oura ring for humans but instead, for cows. They come in many different wearable forms from collars, ear tags, wristbands and more increasingly popular, bolus’s that reside inside the cow’s reticulum (Schirmann et al. 2013; Kaufman et al. 2018; Soriani et al. 2012).
+
+In recent decades, there has been an increase in the utilization of this advanced technology to help improve dairy cow health and well-being. Not only does it combat efficiency for farmers, but it also has the capabilities to aid in disease detection that is still currently being explored. As stated previously, the transition period is such a critical time, as there are many metabolic changes happening, and if detrimental enough, it can negatively impact dairy cow health (Drackley 1999). Which in turn, has a negative effect on farmers by losing product, increase in vet care and if worse enough, loss of the cow. Once a cow undergoes parturition, or gives birth, there is an increased demand for nutrients since most of the cow’s energy is used to produce mass amounts of milk, this is called a negative energy balance (NEB). Dairy cows must eat to meet their energy requirements and if failure to adapt to NEB puts them at a higher risk for heath disorders or metabolic diseases in the first few weeks of lactation (McArt et al. 2012; Tufarelli et al. 2024). Some of these health disorders include hypocalcemia (milk fever), ketosis, rumen acidosis, displaced abomasum, retained placenta, etc. When dairy cows get sick or feel unwell, that will have a negative effect on their rumination and dry matter intake (DMI), causing them to eat less. In addition, most metabolic diseases, some cows can show no symptoms and be considered subclinical, which makes it harder to detect just from visual observation. However, with advanced dairy technology, rumination can be measured, and farmers and researchers can now utilize this to monitor dairy health data to help detect diseases/disorders earlier (Soriani et al. 2012).
+
+Objective
+
+The objective of this study is to explore rumination time in the last week of pregnancy and see how it impacts milk production in the first 30 days into lactation (days in milk, DIM).
+
+Methods
+
+The data used in this study was collected from the Fairchild Dairy Teaching and Research Center and from the automated cow monitoring system, SmaXtec, for (n=34) Holstein dairy cows. Bolus’s have been installed for majority lactating cows and have been collecting rumination time (min/24hr), water intake (l/24hr), body temperature (°C), activity, calving indicator, and heat index. The metrics of interest for this study involved milk yield data from 0-30 DIM and rumination time every 10 mins from -14d pre-partum to 30d post-partum.
+
+Data Cleaning and Organizing
+
+A list of cows were obtained from the farm manager that have calved since April 1st, 2025, and stored in an excel spreadsheet which consisted of Cow ID, lactation number, date of calving, 14d before calving date, as well as the date of when the cow reached 30 DIM. From there, individual cow data (rumination time (min/24hr)) from the SmaXtec online database was exported from -14d pre-partum to 30d post-partum and briefly scanned to ensure it consisted appropriate days needed. Cows that did not meet the date requirements, i.e. bolus was administered at a later time and not yet calibrated, was not included in the study (n=13). In a new excel sheet, consisted of all SmaXtec imported data, and new columns was created to gather 2 hour, 6 hour, and 24 hours mean rumination time (RT) for each individual cow on each day. Each cow’s spreadsheet was then copied and pasted to create one long running spreadsheet for all cows in this study (n=34) to then be imported to R studio for further analysis.
+
+As for milk yield, data was exported from the milk system (DeLaval Delpro) at the UNH dairy computer, for each cow (n=34). Each excel spreadsheet consisted of Cow ID, date, days since last calving (DIM), and total daily milk yield (lbs.). New columns of lactation number, weekly milk yield (MY) and Week (1-5) was added. Similar to the RT data, each cow’s spreadsheet was then copied and pasted to create one long running spreadsheet to then be imported to R studio for further analysis.
+
+Mean rumination time in last week of pregnancy
+
+Each cow was placed into one of two groups, above or below, based off of the their individual mean rumination time (RT), accounting for parity (primiparous or multiparous), as primiparous cows differ biologically from multiparous cows, in the last week of pregnancy. To start, each individual cows 24 hour RT was selected from -7d to -1d, to obtain the individual mean RT in the last week of pregnancy. For primiparous cows, (lactation = 1, n = 5), each individual mean RT was then averaged together to obtain a group mean RT to classify each primparous cow if their individual mean RT in the last week of pregnancy was above or below the group RT average. This same step was also completed for the multiparous cows, (lactation = 2+, n = 29).
+
+Mean rumination time in the week before and week after calving
+
+Both the above and below groups mean rumination time was observed in the week before and week after calving, with data focusing from day -7 to 7, with calving being day 0. Starting with the below group, daily (24hr) rumination time was averaged from each cow, for each day from -7 to 7. The same step was repeated for the cows in the above group. This data was then combined together to be constructed into a time series plot.
+
+Above and below groups milk yield in first 30 days in milk
+
+Groups above and below were assigned to the milk yield data to explore lactation success in the first 30 days in milk (DIM). This data was used to create two time series plots, one for the above group and one for the below group, with week and weekly milk yield (mean milk yield for each week). Similar to comparing mean rumination time between the above and below groups, the same was done to visualize the difference in milk production in the first 30 DIM. For the below group, the mean daily milk yield was averaged from day 1 to day 30. The same was completed for the above group, then both data was then combined together to be constructed into a time series plot.
+
+Results
+
+Data Organizing and Cleaning
+
+All codes to creating the tables, figures and data frames can be found here https://github.com/1006kay/Biol_806_FinalProject.git on github.
+
+{r, message = FALSE, warning= FALSE, echo=FALSE}
+#Load Packages
+library(tidyverse)
+library(readxl)
+library(purrr)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(kableExtra)
+
+RT30d_data <- read_excel("~/Desktop/Master Program/Fairchild Data /RT30d_data.xlsx")
+MY30d_data1 <- read_excel("~/Desktop/Master Program/Fairchild Data /MY30d_data1.xlsx")
+
+Mean rumination time in the last week of pregnancy
+
+To account for parirty, primiparous (1st lactation) and multiparous (2+ lactation) cows were grouped together to obtain mean rumination time for their last week of pregnancy (LWP), which consisted of days -7 to -1, relative to calving at day 0. For primiparous cows, the mean RT in the LWP was 489.99 min/24hr. For multiparous cows, the mean RT in the LWP was 473.12 min/24hr. In table 1, it shows the cows that were enrolled in the data collection process that had an individual mean RT that was below parity (primi- or multiparous) average. Also included in table 1, is the lactation each cow is currently in. The sample size of cows placed in the below group is n = 16. Table 2 includes the same metrics listed in table 1, however this table shows the cows that had a greater mean RT in the LWP than the parity RT average. The sample size of cows placed in the above group is n = 18.
+
+\pagebreak
+
+{r, echo=FALSE, tab.cap="The distribution of cows that belong in the below group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (489.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
+#1. Finding individual RT (24hr) in last week of pregnancy
+ind_average24rt <- RT30d_data %>%
+  select(`Cow ID`, Day, `RT 24hr`) %>% 
+  filter(Day %in% c(-7, -6, -5, -4, -3, -2, -1)) %>%
+  distinct() %>% #removes identical rows
+  group_by(`Cow ID`) %>%
+  summarise(`meanRT-1wk` = mean(`RT 24hr`)) #gets avg(mean) RT in -7 to -1d 
+
+#2. Finding mean RT based off parity (primi = 1, multi = 2<), then creating above or below groups 
+MYlactation <- MY30d_data1 %>%
+  select(`Cow ID`, Lactation)%>%
+  distinct() #data frame creating cow id and lactation (parity)
+
+#Primi
+ind_average24rt.1 <- left_join(MYlactation, ind_average24rt, by = "Cow ID") #combines lactation status to 24 hr RT data by Cow ID
+primi_ind_avg <- ind_average24rt.1 %>%
+  filter(Lactation == 1) %>% #separating primi cows
+  mutate(mean_grp1avg_rt24 = mean(`meanRT-1wk`), 
+         comparison = case_when(`meanRT-1wk` > mean_grp1avg_rt24 ~ "above",
+      `meanRT-1wk` < mean_grp1avg_rt24 ~ "below",
+      TRUE ~ "equal")) #indicates if ind cow falls above or below grp avg for primiparous cows
+#multi
+multi_ind_avg <- ind_average24rt.1 %>%
+  filter(Lactation > 1) %>% #separating mutli cows
+  mutate(mean_grp1avg_rt24 = mean(`meanRT-1wk`), 
+         comparison = case_when(`meanRT-1wk` > mean_grp1avg_rt24 ~ "above",
+      `meanRT-1wk` < mean_grp1avg_rt24 ~ "below",
+      TRUE ~ "equal")) #indicates if ind cow falls above or below grp avg for multiparous cows
+
+#combining both primi + multi data frames
+ind_average24rt.2 <- rbind(primi_ind_avg, multi_ind_avg)
+grp_avg_final <- ind_average24rt.2 %>%
+  mutate(parity = case_when(Lactation <= 1 ~ "primi", Lactation > 1 ~ "multi"))
+
+#Cow ID and Parity data frame
+cow_parity <- grp_avg_final %>%
+  select(`Cow ID`, parity)
+
+
+grp1below <- grp_avg_final %>%
+  filter(comparison == "below")
+
+colnames(grp1below)[3] <- c("Mean Ind. RT in LWP")
+colnames(grp1below)[4] <- c("Mean Parity RT in LWP")
+colnames(grp1below)[5] <- c("Group")
+colnames(grp1below)[6] <- c("Parity")
+
+kable(grp1below)
+
+\pagebreak
+
+{r, echo=FALSE, tab.cap="The distribution of cows that belong in the above group based off of their rumination time (RT) in their last week of pregnancy. The primiparous cows (n=5) were grouped together to find the primiparous mean RT (489.99 min/24hr) and the multiparous cows (n=29) were grouped together to find the multiparous mean RT (473.12 min/24hr)."}
+grp1above <- grp_avg_final %>%
+  filter(comparison == "above")
+
+colnames(grp1above)[3] <- c("Mean Ind. RT in LWP")
+colnames(grp1above)[4] <- c("Mean Parity RT in LWP")
+colnames(grp1above)[5] <- c("Group")
+colnames(grp1above)[6] <- c("Parity")
+
+kable(grp1above)
+
+\pagebreak
+
+In Figure 1, shows the distribution of cows individual rumination time after assigning groups, above or below, based off of the mean RT in the last week of pregnancy. Based off of Figure 1, the above group shows that there are no outliers, the overall shape has some symmetric distribution of individual mean RT since the median line is centered while the whiskers are not evenly distributed, and has a higher median when compared to the below group. As for the below group, it is showing two outliers below the median of the group, as well as the shape of this group is not symmetric as the median is not centered but the whiskers are similar in length.
+
+{r, echo=FALSE, fig.cap="The box plot figure shows the individual cow mean rumination time (min/24hr) in the last week of pregnancy (LWP) for both the above and below groups."}
+above_below_bp <- ggplot(grp_avg_final, aes(x = comparison, y = `meanRT-1wk`, 
+                             colour = comparison)) +
+  geom_boxplot() +
+  theme_light() +
+  scale_color_manual(values = c("cadetblue3", "coral1")) +
+  labs(x = "Group", 
+       y = "Individual Cow Mean Rumination Time 
+       (min/24hr) in the LWP",
+       color = NULL) +
+  theme(axis.title.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12))
+
+print(above_below_bp)
+
+\pagebreak
+
+Mean rumination time in the week before and week after calving
+
+In Figure 2, it shows mean rumination time (min/24hr) by day relative to calving. The below group has decreased mean rumination time from day -7 to day 1, when compared to the above group. After calving at day 0, the below group still has a slight decrease in mean rumination time is comparison to the above group. However, at day 2, both the above and below groups have a similar mean rumination time just above 425 min/24hr. Both groups have a similar pattern of  rumination time throughout the two weeks. Around calving, rumination time will decrease, then should increase shortly after.
+
+{r, echo=FALSE, fig.cap="Time series plot that is showing the mean rumination (RT) (min/24hr) from the above and below group from 7 days before and 7 days after relative to calving (day 0)."}
+#0. New data frames were created with all RT data for above and below groups for future analysis
+grp1above_dataset <- RT30d_data %>%
+  filter(`Cow ID` %in% c(976, 989, 1047, 1083, 1103, 1107, 1141, 1148, 1189, 1192, 1200,
+                         1203, 1205, 1206, 1207, 1209, 1252, 1253))
+grp1below_dataset <- RT30d_data %>%
+  filter(`Cow ID` %in% c(953, 963, 1048, 1065, 1143, 1150, 1157,
+                         1191, 1193, 1195, 1199, 1208, 1215, 1245, 1246, 1250))
+
+
+#1. Creating data frame of 24hr RT for above group from -7 to 7 days relative to calving
+grp1above_RT_LWP <- grp1above_dataset %>%
+  select(`Cow ID`, Day, `RT 24hr`) %>%
+  filter(Day %in% c(-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7)) %>%
+  distinct()
+
+#2. Finding the mean 24hr RT for each day from the above group
+grp1above_RT_LWP.1 <- grp1above_RT_LWP %>%
+  group_by(Day) %>%
+  summarise(above = mean(`RT 24hr`))
+
+#3. Creating data frame of 24hr RT for below group from -7 to 7 days relative to calving
+grp1below_RT_LWP <- grp1below_dataset %>%
+  select(`Cow ID`, Day, `RT 24hr`) %>%
+  filter(Day %in% c(-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7)) %>%
+  distinct() 
+
+#4. Finding the mean 24hr RT for each day from the below group
+grp1below_RT_LWP.1 <- grp1below_RT_LWP %>%
+  group_by(Day) %>%
+  summarise(below = mean(`RT 24hr`))
+
+#5. Combining both above and below groups data frames to create long data frame to graph in ggplot
+grp1_a_b_LWP <- left_join(grp1above_RT_LWP.1, grp1below_RT_LWP.1, by = "Day")
+grp1_a_b_LWP_long <- grp1_a_b_LWP %>%
+  pivot_longer(cols = c(above, below), 
+               names_to = "group", values_to = "mean_RT")
+#need to pivot_longer data to plot both above and below groups
+
+#6. Creating ggplot point graph to visualise mean RT from -7d to 7d for the above group and below group
+mean_a_b_rt <- ggplot(grp1_a_b_LWP_long, aes(x = Day, y = mean_RT, color = group)) +
+  geom_point() +
+  geom_line(aes(group = group)) +
+  scale_x_continuous(breaks = -7:7) + #need this for xaxis in days
+  scale_color_manual(values = c("cadetblue3", "coral1")) +
+  theme_light() +
+  labs(y = "Mean Rumination Time (min/24hr)", color = NULL) +
+  theme(axis.title.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12))
+
+print(mean_a_b_rt)
+
+\pagebreak
+
+Above and below groups milk yield in first 30 days in milk
+
+In Figure 3, it shows the weekly milk yield (lbs) for the above group in the first five weeks in lactation. Based off of the figure, all cows have a similar trend throughout the five weeks, increasing as the weeks increase. Cow 989 has a slight decrease at week three but increases after. Cow 976 and 1047 both have a decrease in weekly milk yield at week five.
+
+{r, echo=FALSE, fig.cap="Time series plot that shows the mean weekly milk yield (lbs) for each individual cow in the above group in the first five weeks into lactation. Calving is at the beginning of week 1."}
+#1. Assign groups (above or below) to MY data
+cowid_group <- grp_avg_final %>%
+  select(`Cow ID`, comparison, parity)
+MY30d_group1 <- left_join(MY30d_data1, cowid_group, by = "Cow ID")
+#assigning group to MY data
+
+#2. Creating seperate data frames for above and below group
+grp1MY_above <- MY30d_group1 %>%
+  filter(comparison == "above") %>%
+  mutate(`Cow ID` = as.factor(`Cow ID`)) #for ease of plotting in ggplot
+
+grp1MY_below <- MY30d_group1 %>%
+  filter(comparison == "below") %>%
+  mutate(`Cow ID` = as.factor(`Cow ID`))
+
+#3. Graphs in ggplot point for above and below groups to visualise weekly mean MY in the first 5 weeks of lactation
+#above
+above_my <- ggplot(grp1MY_above, aes(x = Week, 
+                         y = `Weekly MY`, 
+                         color = `Cow ID`)) +
+  geom_point() +
+  geom_line() +
+  theme_light() +
+  labs(y = "Weekly Milk Yield (lbs) for 
+       the Above Group") +
+  theme(axis.title.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        legend.text = element_text(size = 7)) +
+  guides(color=guide_legend(nrow = 10, byrow = FALSE, order = 1))
+
+
+print(above_my)
+
+\pagebreak
+
+In Figure 4, it shows the weekly milk yield (lbs) for the below group in the first five weeks in lactation. Based off of the figure, there are a some cows that have a decrease in weekly milk yield. Cows 1150 has a decline in weekly milk yield at week three, that continues to decrease. Cow 1195 also has a slight decrease at week three but slightly increases at week four and five. Cow 1048 has a decrease in weekly milk yield at week two, but increases in the next week. Cow 1191 and 953 both have a slight decrease in weekly milk yield at week five.
+
+{r, echo=FALSE, fig.cap="Time series plot that shows the mean weekly milk yield (lbs) for each individual cow in the below group in the first five weeks into lactation. Calving is at the beginning of week 1."}
+#below
+below_my <- ggplot(grp1MY_below, aes(x = Week, 
+                         y = `Weekly MY`, 
+                         color = `Cow ID`)) +
+  geom_point() +
+  geom_line() +
+  theme_light() +
+  labs(y = "Weekly Milk Yield (lbs) for 
+       the Below Group") +
+  theme(axis.title.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        legend.text = element_text(size = 7)) +
+  guides(color=guide_legend(nrow = 10, byrow = FALSE, order = 1))
+
+print(below_my)
+
+\pagebreak
+
+In Figure 5, it shows that the cows in the below group, which had a lower rumination time in the last week of pregnancy, had slightly lower mean milk yield in the first 30 days into lactation when compared to the cows in the above group, which had a higher rumination time in the last week of pregnancy.
+
+{r, echo=FALSE, fig.cap="Time series plot that shows the mean milk yield (lbs) for the above and below groups in the first 30 days in milk (DIM). Calving is at day 0."}
+#4. Finding mean MY for the above and below group
+#above
+avgaboveMY <- grp1MY_above %>%
+  select(`Cow ID`, `Days Since Last Calving`, `Total Yield`) %>%
+  group_by(`Days Since Last Calving`) %>%
+  summarise(above = mean(`Total Yield`))
+
+#below
+avgbelowMY <- grp1MY_below %>%
+  select(`Cow ID`, `Days Since Last Calving`, `Total Yield`) %>%
+  group_by(`Days Since Last Calving`) %>%
+  summarise(below = mean(`Total Yield`))
+
+#5. Combining above and below MY data to graph
+MY_above_below <- left_join(avgaboveMY, avgbelowMY, by = "Days Since Last Calving") 
+MY_above_below_long <- MY_above_below %>%
+  pivot_longer(cols = c(above, below),
+               names_to = "group", values_to = "mean_my")
+
+
+#6. Creating ggplot point graph on above and below mean MY in the first 30 days in milk (DIM)
+mean_my_a_b <- ggplot(MY_above_below_long, aes(x = `Days Since Last Calving`, 
+                                y = mean_my, 
+                                color = group)) +
+  geom_point() +
+  geom_line() +
+  scale_color_manual(values = c("cadetblue3", "coral1")) + 
+  theme_light() +
+  labs(x = "Days in Milk", 
+       y= "Mean Milk Yield (lbs)", 
+       color = NULL) +
+  theme(axis.title.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12))
+
+print(mean_my_a_b)
+
+Discussion
+
+Rumination time in last week of pregnancy
+
+From table 1 and table 2, there is a slightly even distribution of cows in the above and below group, above with (n = 18) and below with (n = 16). Primiparous cows had a greater mean rumination time when compared to multiparous cows, which is unexpected since multiparous cows tend to spend more time ruminating. However, since the sample size for primiparous cows was only five in total, two of the five primiparous cows were placed in the above group because of their high rumination time compared to the other three, which could explain why the primiparous mean rumination time is greater. As for the multiparous cows, n = 13 were placed in the below group while the remaining n = 16 placed in the above group. As for Figure 1, there is a clear difference of the above and below group in relation to their individual mean RT in the last week of pregnancy.
+
+Rumination time in the week before and week after calving
+
+The mean rumination time for the below group from -7 to day 0 in Figure 2 shows a huge gap representing decreased rumination time when compared to the above group. However, both have a similar trend of reduced RT from -1 to 1 d, which provides support that calving is known to cause a decrease in rumination time. Only on day 2, both groups have a similar mean RT but overall even after calving, the below group stays consistently under the above group.
+
+Milk yield in the first 30 days in milk
+
+Throughout Figures 3 and 4, it shows the relationship of weekly milk yield from week one to five for both groups. There is a similar trend with both groups, when the week increases, so does weekly milk yield. This is realistic for a dairy cow, as they will reach peak milk yield around 40 to 70 DIM. In the below group, there are some cows that had greater reductions in weekly milk yield throughout the first five weeks. However, in the above group, there are only a couple of cows that had very little decreased weekly milk yield. Lastly, the same concept can be applied to Figure 5, as time increases (days) so does milk yield. Similar to Figure 2, Figure 5 shows that the below group is consistently under the above group, meaning that it can be hypothesized that cows that have low rumination time in the last week of pregnancy, will most likely make less milk in the first 30 days in milk than cows that have high rumination time in the last week of pregnancy. 
+
+Conclusion
+
+This data gives helpful insight on how rumination time in the last week of pregnancy can impact milk production in the first 30 days into lactation. With a decrease in rumination time in the last week of pregnancy, it could possibly be the reason for a decrease in milk yield. Because health events were not provided in this study, it is unknown if common health disorders like hypocalcemia, ketosis, retain placenta, etc., caused the reduction of milk yield for the cows in the below group. Because the transition period is a critical time for dairy cows, decreased rumination time increases the risk of health disorders that consequently decreases milk yield at the start of lactation. This study opens up new ideas to explore on how rumination time in the last week of pregnancy impacts lactation success.
+
+\pagebreak
+
+Works Cited
+
+Calamari, L., N. Soriani, G. Panella, F. Petrera, A. Minuti, and E. Trevisi. 2014. “Rumination Time around Calving: An Early Signal to Detect Cows at Greater Risk of Disease.” Journal of Dairy Science 97 (6): 3635–47. https://doi.org/10.3168/jds.2013-7709.
+
+Drackley, James K. 1999. “Biology of Dairy Cows During the Transition Period: The Final Frontier?” Journal of Dairy Science 82 (11): 2259–73. https://doi.org/10.3168/jds.S0022-0302(99)75474-3.
+
+Kaufman, E.I., V.H. Asselstine, S.J. LeBlanc, T.F. Duffield, and T.J. DeVries. 2018. “Association of Rumination Time and Health Status with Milk Yield and Composition in Early-Lactation Dairy Cows.” Journal of Dairy Science 101 (1): 462–71. https://doi.org/10.3168/jds.2017-12909.
+
+Leblanc, Stephen. 2010. “Monitoring Metabolic Health of Dairy Cattle in the Transition Period.” Journal of Reproduction and Development 56 (S): S29–35. https://doi.org/10.1262/jrd.1056S29.
+
+McArt, J.A.A., D.V. Nydam, and G.R. Oetzel. 2012. “Epidemiology of Subclinical Ketosis in Early Lactation Dairy Cattle.” Journal of Dairy Science 95 (9): 5056–66. https://doi.org/10.3168/jds.2012-5443.
+
+Neves, R.C., B.M. Leno, K.D. Bach, and J.A.A. McArt. 2018. “Epidemiology of Subclinical Hypocalcemia in Early-Lactation Holstein Dairy Cows: The Temporal Associations of Plasma Calcium Concentration in the First 4 Days in Milk with Disease and Milk Production.” Journal of Dairy Science 101 (10): 9321–31. https://doi.org/10.3168/jds.2018-14587.
+
+Paudyal, S., F.P. Maunsell, J.T. Richeson, C.A. Risco, D.A. Donovan, and P.J. Pinedo. 2018. “Rumination Time and Monitoring of Health Disorders during Early Lactation.” Animal 12 (7): 1484–92. https://doi.org/10.1017/S1751731117002932.
+
+Schirmann, K., N. Chapinal, D.M. Weary, L. Vickers, and M.A.G. Von Keyserlingk. 2013. “Short Communication: Rumination and Feeding Behavior before and after Calving in Dairy Cows.” Journal of Dairy Science 96 (11): 7088–92. https://doi.org/10.3168/jds.2013-7023.
+
+Soriani, N, E Trevisi, and L Calamari. 2012. Relationships between Rumination Time, Metabolic Conditions, and Health Status in Dairy Cows during the Transition Period.
+
+Tufarelli, Vincenzo, Nikola Puvača, Dragan Glamočić, Gianluca Pugliese, and Maria Antonietta Colonna. 2024. “The Most Important Metabolic Diseases in Dairy Cattle during the Transition Period.” Animals 14 (5): 816. https://doi.org/10.3390/ani14050816.
+
+R Packages Citations
+
+Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL https://www.jstatsoft.org/v40/i03/.
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” Journal of Open Source Software, 4(43), 1686. doi:10.21105/joss.01686 https://doi.org/10.21105/joss.01686.
+
+Wickham H, Bryan J (2025). readxl: Read Excel Files. R package version 1.4.5, https://CRAN.R-project.org/package=readxl.
+
+Wickham H, Henry L (2023). purrr: Functional Programming Tools. R package version 1.0.2, https://CRAN.R-project.org/package=purrr.
+
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+Wickham H, François R, Henry L, Müller K, Vaughan D (2023). dplyr: A Grammar of Data Manipulation. R package version 1.1.4, https://CRAN.R-project.org/package=dplyr.
+
+Zhu H (2024). kableExtra: Construct Complex Table with 'kable' and Pipe Syntax. R package version 1.4.0, https://CRAN.R-project.org/package=kableExtra.
